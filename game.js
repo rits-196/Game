@@ -4,38 +4,42 @@ const nextBtn = document.getElementById("next-btn");
 
 let playerCount = 0;
 
-// Add new input field when "Add Player" is clicked
 addPlayerBtn.addEventListener("click", () => {
   playerCount++;
   const input = document.createElement("input");
   input.type = "text";
   input.placeholder = `Player ${playerCount} Name`;
   input.name = `player${playerCount}`;
-  playerContainer.appendChild(input);    
+  playerContainer.appendChild(input);     
 });           
+  
+const resultsDiv = document.getElementById("results");
 
-// Handle "Next" button click  
 nextBtn.addEventListener("click", () => {
   const inputs = playerContainer.querySelectorAll("input");
-  const playerNames = Array.from(inputs).map(input => input.value.trim()).filter(name => name !== "");
+
+  const playerNames = Array.from(inputs)
+    .map(input => input.value.trim())
+    .filter(name => name !== "");
 
   if (playerNames.length === 0) {
-    alert("Please add at least one player.");
-    return;      
+    resultsDiv.innerHTML = "<p>Please add at least one player.</p>";
+    return;
   }
-const numbers = [];
-for (let i = 1; i <= playerNames.length; i++) {
-  numbers.push(i);
-}
 
-numbers.sort(() => Math.random() - 0.5);
+  const numbers = [];
+  for (let i = 1; i <= playerNames.length; i++) {
+    numbers.push(i);
+  }
 
-const assignments = playerNames.map((name, index) => {
-  return `${name} → ${numbers[index]}`;
+  numbers.sort(() => Math.random() - 0.5);
+
+  resultsDiv.innerHTML = "<h3>Player Assignments</h3>";
+
+  playerNames.forEach((name, index) => {
+    const p = document.createElement("p");
+    p.textContent = `${name} → ${numbers[index]}`;
+    resultsDiv.appendChild(p);
+  });
 });
-
-alert("Assignments:\n" + assignments.join("\n"));
-
-  console.log("Player Names:", playerNames);
-  alert("Players added: " + playerNames.join(", "));     
-});                          
+                       

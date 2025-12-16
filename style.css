@@ -2,39 +2,71 @@
 *::before,
 *::after {
   box-sizing: border-box;
-  margin:5;
-  padding:0;
+  margin: 0;
+  padding: 0;
 }
+
 body {
   font-family: Arial, sans-serif;
-  padding: 20px;
+  padding: 30px;
+  background-color: #f8c8dc; /* light pink */
+  line-height: 1.8; /* more space between lines */
+  color: #4a2c3a; /* soft dark pink text */
 }
 
 #player-container {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
+/* Inputs */
 input {
   display: block;
-  margin: 10px 0;
-  padding: 8px;
-  width: 200px;
+  margin: 15px 0;
+  padding: 12px;
+  width: 240px;
+  border-radius: 6px;
+  border: 1px solid #c97aa0;
+  font-size: 16px;
 }
 
+/* Buttons */
 button {
-  padding: 10px 15px;
-  margin-right: 10px;
+  padding: 14px 24px; /* larger buttons */
+  margin-right: 15px;
+  margin-top: 10px;
   cursor: pointer;
-}
-
-#results {
-  margin-top: 20px;
-  padding: 10px;
-  border: 2px solid #444;
-  border-radius: 8px;
-}
-
-#results p {
   font-size: 18px;
-  margin: 6px 0;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  background-color: #ff69b4; /* hot pink */
+  color: white;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+button:hover {
+  background-color: #ff1493; /* darker pink */
+  transform: scale(1.05);
+}
+
+/* Results box */
+#results { 
+  margin-top: 30px;
+  padding: 20px;
+  border: 2px solid #a64d79;
+  border-radius: 12px;
+  background-color: #fff;
+}
+
+/* Results text */
+#results p {
+  font-size: 20px;
+  margin: 12px 0;
+  color: #7a1f4b; /* deeper pink */
+}
+
+/* Optional headings (if you have any) */
+h1, h2, h3 {
+  color: #9b1b5a;
+  margin-bottom: 15px;
 }

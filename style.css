@@ -9,16 +9,15 @@
 body {
   font-family: Arial, sans-serif;
   padding: 30px;
-  background-color: #f8c8dc; /* light pink */
-  line-height: 1.8; /* more space between lines */
-  color: #4a2c3a; /* soft dark pink text */
+  background-color: #f8c8dc; 
+  line-height: 1.8;
+  color: #4a2c3a;
 }
 
 #player-container {
   margin-bottom: 30px;
 }
 
-/* Inputs */
 input {
   display: block;
   margin: 15px 0;
@@ -29,9 +28,8 @@ input {
   font-size: 16px;
 }
 
-/* Buttons */
 button {
-  padding: 14px 24px; /* larger buttons */
+  padding: 14px 24px;
   margin-right: 15px;
   margin-top: 10px;
   cursor: pointer;
@@ -39,18 +37,17 @@ button {
   font-weight: bold;
   border: none;
   border-radius: 10px;
-  background-color: #ff69b4; /* hot pink */
+  background-color: #ff69b4;
   color: white;
   transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
 button:hover {
-  background-color: #ff1493; /* darker pink */
+  background-color: #ff1493;
   transform: scale(1.05);
 }
 
-/* Results box */
-#results { 
+#results {
   margin-top: 30px;
   padding: 20px;
   border: 2px solid #a64d79;
@@ -58,14 +55,12 @@ button:hover {
   background-color: #fff;
 }
 
-/* Results text */
 #results p {
   font-size: 20px;
   margin: 12px 0;
-  color: #7a1f4b; /* deeper pink */
+  color: #7a1f4b;
 }
 
-/* Optional headings (if you have any) */
 h1, h2, h3 {
   color: #9b1b5a;
   margin-bottom: 15px;

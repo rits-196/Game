@@ -1,45 +1,51 @@
 const playerContainer = document.getElementById("player-container");
 const addPlayerBtn = document.getElementById("add-player-btn");
 const nextBtn = document.getElementById("next-btn");
+const resultsDiv = document.getElementById("results");
 
 let playerCount = 0;
 
-addPlayerBtn.addEventListener("click", () => {            
+addPlayerBtn.addEventListener("click", () => {
   playerCount++;
   const input = document.createElement("input");
   input.type = "text";
   input.placeholder = `Player ${playerCount} Name`;
-  input.name = `player${playerCount}`;
-  playerContainer.appendChild(input);        
-});                                                      
-                
-const resultsDiv = document.getElementById("results");
-       
+  playerContainer.appendChild(input);
+});
+
 nextBtn.addEventListener("click", () => {
   const inputs = playerContainer.querySelectorAll("input");
-               
-  const playerNames = Array.from(inputs)      
-    .map(input => input.value.trim())      
-    .filter(name => name !== "");      
-          
-  if (playerNames.length === 0) {
-    resultsDiv.innerHTML = "<p>Please add at least one player.</p>";
+
+  const playerNames = Array.from(inputs)
+    .map(input => input.value.trim())
+    .filter(name => name !== "");
+
+  if (playerNames.length < 2) {
+    resultsDiv.innerHTML = "<p>Please enter at least 2 players.</p>";
     return;
   }
 
-  const numbers = [];
-  for (let i = 1; i <= playerNames.length; i++) {
-    numbers.push(i);
-  }                  
+  const commonNumber = Math.floor(Math.random() * 10) + 1;
+  let imposterNumber;
 
-  numbers.sort(() => Math.random() - 0.5);  
+  do {
+    imposterNumber = Math.floor(Math.random() * 10) + 1;
+  } while (imposterNumber === commonNumber);
+
+  const imposterIndex = Math.floor(Math.random() * playerNames.length);
 
   resultsDiv.innerHTML = "<h3>Player Assignments</h3>";
 
-  playerNames.forEach((name, index) => {                   
-    const p = document.createElement("p");  
-    p.textContent = `${name} → ${numbers[index]}`;    
+  playerNames.forEach((name, index) => {
+    const p = document.createElement("p");
+
+    if (index === imposterIndex) {
+      p.textContent = `${name} → ${imposterNumber}`;
+    } else {
+      p.textContent = `${name} → ${commonNumber}`;
+    }
+
     resultsDiv.appendChild(p);
   });
 });
-                                  
+                         
